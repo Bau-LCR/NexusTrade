@@ -1,0 +1,20 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bolsín — terminal de trading simulado</title><link rel="stylesheet" href="css/main.css"></head><body>
+<header id="top"><b class="logo">Bolsín</b>
+<div class="kv"><span>Patrimonio</span><b id="eq">—</b></div><div class="kv"><span>Resultado</span><b id="pl">—</b></div><div class="kv"><span>Efectivo</span><b id="cash">—</b></div><div class="kv"><span>Reloj simulado</span><b id="clock">—</b></div>
+<div class="ctl"><button id="pause">Pausar</button><select id="speed" aria-label="Velocidad"><option value="1">1×</option><option value="2">2×</option><option value="5">5×</option></select><select id="vol" aria-label="Volatilidad"><option value=".5">Vol. baja</option><option value="1" selected>Vol. media</option><option value="2">Vol. alta</option></select><label><input type="checkbox" id="corr" checked> Correlación</label>
+<button id="exp">Exportar</button><button id="imp">Importar</button><input type="file" id="file" accept="application/json" hidden><button id="rst">Reiniciar cuenta</button><span id="saved"></span></div></header>
+<div id="warn"><span>ENTORNO DE SIMULACIÓN — DINERO VIRTUAL — DATOS GENERADOS ARTIFICIALMENTE. NO REPRESENTA COTIZACIONES REALES. Los datos se guardan solo en este navegador.</span><button id="wmin" aria-label="Minimizar aviso">Minimizar</button></div>
+<main>
+<aside id="left"><input id="q" placeholder="Buscar símbolo o nombre" aria-label="Buscar"><div class="row"><select id="cat"></select><select id="sort"><option value="name">Nombre</option><option value="price">Precio</option><option value="chg">Variación</option><option value="vol">Volumen</option></select></div><ul id="list"></ul></aside>
+<section id="center"><div id="tb"><div id="hd"></div><span id="tfs"></span><select id="ct"><option value="candles">Velas</option><option value="line">Línea</option></select><label><input type="checkbox" id="isma" checked> SMA 20</label><label><input type="checkbox" id="iema" checked> EMA 50</label><label><input type="checkbox" id="ivol" checked> Volumen</label><button id="rv">Restaurar vista</button></div>
+<div id="chartwrap"><canvas id="cv"></canvas></div>
+<div id="bottom"><nav id="tabs"><button data-t="pos">Posiciones</button><button data-t="ord">Órdenes pendientes</button><button data-t="his">Historial</button></nav><div id="tbl"></div></div></section>
+<aside id="right"><div class="seg" id="sides"><button data-s="buy">Comprar</button><button data-s="sell">Vender</button></div><div class="seg" id="types"><button data-y="market">Mercado</button><button data-y="limit">Límite</button></div>
+<div class="f"><span>Activo</span><b id="osym"></b></div><div class="f"><span>Precio actual</span><b id="opx"></b></div><div class="f"><span>Disponible</span><b id="oav"></b></div>
+<label class="f" id="lpw"><span>Precio límite</span><input id="lp" type="number" step="any" min="0"></label><label class="f"><span>Cantidad</span><input id="qty" type="number" step="any" min="0"></label>
+<div class="pcts"><button>10</button><button>25</button><button>50</button><button>75</button><button>100</button></div>
+<div class="f"><span>Valor estimado</span><b id="oval">—</b></div><div class="f"><span>Comisión</span><b id="ofee">—</b></div>
+<button id="go">Confirmar</button><p id="msg" role="status"></p>
+<div class="cfg"><label>Comisión % <input id="cfee" type="number" step=".01" min="0" max="5"></label><label>Deslizamiento % <input id="cslip" type="number" step=".01" min="0" max="5"></label></div>
+<p class="note">Sin ventas en corto ni apalancamiento. Patrimonio = efectivo + cantidad × precio. La comisión se suma al costo de entrada.</p></aside>
+</main><script type="module" src="js/app.js"></script></body></html>
