@@ -171,3 +171,6 @@ $('#rst').onclick=()=>{
 };
 
 init();
+
+// Puente de solo lectura para extras.js (no modifica el comportamiento existente)
+export const ctx={get mk(){return mk},get ac(){return ac},get chart(){return chart},ui,A,fmt,cls,px,pick,persist,say,updateTop,renderTable};
